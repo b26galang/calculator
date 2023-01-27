@@ -1,0 +1,9 @@
+.calculatorBtn {
+    height: 60px;
+    width: 100px;
+}
+
+#result {
+    height: 60px;
+    width: 400px;
+}

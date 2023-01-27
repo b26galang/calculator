@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <input type="text" id="result" disabled/>
+    <table>
+        <tr>
+            <td><input type="button" value="7" onclick="display('7')" class="calculatorBtn" /> </td>
+            <td><input type="button" value="8" onclick="display('8')" class="calculatorBtn" /> </td>
+            <td><input type="button" value="9" onclick="display('9')" class="calculatorBtn" /> </td>
+            <td><input type="button" value="+" onclick="display('+')" class="calculatorBtn" /> </td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="display('4')" class="calculatorBtn" /> </td>
+            <td><input type="button" value="5" onclick="display('5')" class="calculatorBtn" /> </td>
+            <td><input type="button" value="6" onclick="display('')" class="calculatorBtn" /> </td>
+            <td><input type="button" value="-" onclick="display('-')" class="calculatorBtn" /> </td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick="display('1')" class="calculatorBtn" /> </td>
+            <td><input type="button" value="2" onclick="display('2')" class="calculatorBtn" /> </td>
+            <td><input type="button" value="3" onclick="display('3')" class="calculatorBtn" /> </td>
+            <td><input type="button" value="*" onclick="display('*')" class="calculatorBtn" /> </td>
+        </tr>
+        <tr>
+            <td><input type="button" value="Clr" onclick="clr()" class="calculatorBtn" /> </td>
+            <td><input type="button" value="=" onclick="calculate()" class="calculatorBtn" /> </td>
+            <td><input type="button" value="/" onclick="display('/')" class="calculatorBtn" /> </td>
+        </tr>
+    </table>
+    <br>
+    <h2>History</h2>
+    <ul id="history"></ul>
+</body>
+<script>
+    let history = '';
+
+    // displays value of button clicked
+    function display(val) {
+        document.getElementById("result").value += val;
+        addToHistory(val);
+    }
+
+    // evaluates number and returns result
+    function calculate() {
+        let x = document.getElementById("result").value;
+        let y = eval(x);
+        document.getElementById("result").value = y;
+
+        addToHistory('=' + y);
+    }
+
+    // clears result
+    function clr() {
+        document.getElementById("result").value = "";
+
+        addToHistory(' ');
+    }
+
+    // display calculation history
+    function addToHistory(value) {
+        history += value;
+        document.getElementById('history').innerText = history + "\n";
+    }
+
+</script>
+
+</html>
