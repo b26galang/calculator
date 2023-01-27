@@ -7,3 +7,7 @@
     height: 60px;
     width: 400px;
 }
+
+input {
+    font-size: 1rem;
+}
